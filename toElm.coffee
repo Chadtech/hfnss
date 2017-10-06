@@ -70,7 +70,7 @@ lettersNames = concat [
     ]
 ]
 
-jsUcfirst = (letter) ->
+upperFirst = (letter) ->
     (letter.charAt 0).toUpperCase() + (letter.slice 1)
 
 listToString = (list) ->
@@ -94,11 +94,38 @@ letterToElmFunction = (letter) ->
     ]).join "\n"
 
 finish = ->
+    letterUnionTypes = _.map (lettersNames.slice 1), (name) ->
+        "    | " + upperFirst name
+
+
+    # cases _.map lettersNames, (name) ->
+    #     [ "        "
+    #     , upperFirst name
+    #     , " ->\n"
+    #     , "            "
+    #     , 
+    #     ]
+    #     "    " + (upperFirst name) + "\n"
+
+
+    # getFunc = concat [
+    #     [ "get : Character -> List (List Pixel)" ]
+    #     [ "get character = " ]
+    #     [ "    case character of " ]
+    #     [ ]
+    # ]
+
+
+
+
     elmFile = concat [
         [ "module Hfnss exposing (..)" ]
         [ "type Pixel" ]
         [ "    = Gray" ]
         [ "    | Black" ]
+        [ "type Character" ]
+        [ "    = " + (upperFirst lettersNames[0]) ]
+        letterUnionTypes
         _.map letters, letterToElmFunction
     ]
 

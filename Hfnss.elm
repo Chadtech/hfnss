@@ -6,6 +6,104 @@ type Pixel
     | Black
 
 
+type Character
+    = AUpper
+    | BUpper
+    | CUpper
+    | DUpper
+    | EUpper
+    | FUpper
+    | GUpper
+    | HUpper
+    | IUpper
+    | JUpper
+    | KUpper
+    | LUpper
+    | MUpper
+    | NUpper
+    | OUpper
+    | PUpper
+    | QUpper
+    | RUpper
+    | SUpper
+    | TUpper
+    | UUpper
+    | VUpper
+    | WUpper
+    | XUpper
+    | YUpper
+    | ZUpper
+    | ALower
+    | BLower
+    | CLower
+    | DLower
+    | ELower
+    | FLower
+    | GLower
+    | HLower
+    | ILower
+    | JLower
+    | KLower
+    | LLower
+    | MLower
+    | NLower
+    | OLower
+    | PLower
+    | QLower
+    | RLower
+    | SLower
+    | TLower
+    | ULower
+    | VLower
+    | WLower
+    | XLower
+    | YLower
+    | ZLower
+    | Space
+    | Number0
+    | Number1
+    | Number2
+    | Number3
+    | Number4
+    | Number5
+    | Number6
+    | Number7
+    | Number8
+    | Number9
+    | Period
+    | Comma
+    | DoubleQuote
+    | SingleQuote
+    | QuestionMark
+    | ExclaimationMark
+    | At
+    | Underscore
+    | Asterisk
+    | Hash
+    | Dollar
+    | Percent
+    | Ampersand
+    | OpenParenthesis
+    | CloseParenthesis
+    | Plus
+    | Minus
+    | ForwardSlash
+    | Colon
+    | SemiColon
+    | LeftArrow
+    | Equals
+    | RightArrow
+    | OpenBracket
+    | BackSlash
+    | CloseBracket
+    | Caret
+    | GraveQuote
+    | OpenCurlyBrace
+    | Line
+    | CloseCurlyBrace
+    | Negation
+
+
 aUpper : List (List Pixel)
 aUpper =
     [ [ Black, Black, Black, Gray, Gray, Gray, Gray, Gray, Black, Black, Black ]
