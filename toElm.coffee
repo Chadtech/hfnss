@@ -88,7 +88,7 @@ index = 0;
 
 letterToElmFunction = (letter) ->
     (concat [
-        [ letter.name, ":", "List (List Bool)" ].join " "
+        [ letter.name, ":", "List (List Pixel)" ].join " "
         [ letter.name, "=" ].join " "
         [ "    " + letter.data ]
     ]).join "\n"
@@ -96,6 +96,9 @@ letterToElmFunction = (letter) ->
 finish = ->
     elmFile = concat [
         [ "module Hfnss exposing (..)" ]
+        [ "type Pixel" ]
+        [ "    = Gray" ]
+        [ "    | Black" ]
         _.map letters, letterToElmFunction
     ]
 
@@ -103,10 +106,16 @@ finish = ->
     fs.writeFileSync "Hfnss.elm", (elmFile.join "\n")
 
 
+blackOrGray = (bool) ->
+    if bool
+        "Gray"
+    else
+        "Black"
+
 getLetter = (index) ->
     getPixels ("./letters/hfnssC0_" + (padLeft index) + ".png"), (err, image) ->
         pixels = _.map (groupBy image.data, 4), (pixel) ->
-            jsUcfirst (String ((String pixel) is hit))
+            blackOrGray ((String pixel) is hit)
 
         rows = _.map (groupBy pixels, 11), (row) ->
             (listToString row) + "\n"
