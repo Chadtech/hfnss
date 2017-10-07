@@ -116,8 +116,6 @@ finish = ->
     # ]
 
 
-
-
     elmFile = concat [
         [ "module Hfnss exposing (..)" ]
         [ "type Pixel" ]
