@@ -1,107 +1,323 @@
-module Hfnss exposing (..)
+module Hfnss
+    exposing
+        ( Pixel(Black, Gray)
+        , get
+        )
+
+{-| Hfnss is my monospace pixel font I use everywhere. For some projects, its prohibitive to use a vector font version of Hfnss. This module contains the pixel data for every letter in Hfnss, which can be read and drawn onto a screen. The data of each letter is stored as a `List (List Pixel)` where `Pixel = Black | Gray` and the lists represent rows and columns.
 
 
+# Pixel
+
+@docs Pixel
+
+
+# Get
+
+@docs get
+
+-}
+
+
+{-| This just represents whether a pixel is filled or not. Most implementations of Hfnss are gray text on a black background so `Gray` and `Black` are used. "Gray" and "Black" are colors obviously, but here they are just stand ins for a pixel being drawn or not. Any color would do.
+-}
 type Pixel
     = Gray
     | Black
 
 
-type Character
-    = AUpper
-    | BUpper
-    | CUpper
-    | DUpper
-    | EUpper
-    | FUpper
-    | GUpper
-    | HUpper
-    | IUpper
-    | JUpper
-    | KUpper
-    | LUpper
-    | MUpper
-    | NUpper
-    | OUpper
-    | PUpper
-    | QUpper
-    | RUpper
-    | SUpper
-    | TUpper
-    | UUpper
-    | VUpper
-    | WUpper
-    | XUpper
-    | YUpper
-    | ZUpper
-    | ALower
-    | BLower
-    | CLower
-    | DLower
-    | ELower
-    | FLower
-    | GLower
-    | HLower
-    | ILower
-    | JLower
-    | KLower
-    | LLower
-    | MLower
-    | NLower
-    | OLower
-    | PLower
-    | QLower
-    | RLower
-    | SLower
-    | TLower
-    | ULower
-    | VLower
-    | WLower
-    | XLower
-    | YLower
-    | ZLower
-    | Space
-    | Number0
-    | Number1
-    | Number2
-    | Number3
-    | Number4
-    | Number5
-    | Number6
-    | Number7
-    | Number8
-    | Number9
-    | Period
-    | Comma
-    | DoubleQuote
-    | SingleQuote
-    | QuestionMark
-    | ExclaimationMark
-    | At
-    | Underscore
-    | Asterisk
-    | Hash
-    | Dollar
-    | Percent
-    | Ampersand
-    | OpenParenthesis
-    | CloseParenthesis
-    | Plus
-    | Minus
-    | ForwardSlash
-    | Colon
-    | SemiColon
-    | LeftArrow
-    | Equals
-    | RightArrow
-    | OpenBracket
-    | BackSlash
-    | CloseBracket
-    | Caret
-    | GraveQuote
-    | OpenCurlyBrace
-    | Line
-    | CloseCurlyBrace
-    | Negation
+{-| Give `get` a char, and youll get the data for that character.
+-}
+get : Char -> List (List Pixel)
+get char =
+    case char of
+        'A' ->
+            aUpper
+
+        'B' ->
+            bUpper
+
+        'C' ->
+            cUpper
+
+        'D' ->
+            dUpper
+
+        'E' ->
+            eUpper
+
+        'F' ->
+            fUpper
+
+        'G' ->
+            gUpper
+
+        'H' ->
+            hUpper
+
+        'I' ->
+            iUpper
+
+        'J' ->
+            jUpper
+
+        'K' ->
+            kUpper
+
+        'L' ->
+            lUpper
+
+        'M' ->
+            mUpper
+
+        'N' ->
+            nUpper
+
+        'O' ->
+            oUpper
+
+        'P' ->
+            pUpper
+
+        'Q' ->
+            qUpper
+
+        'R' ->
+            rUpper
+
+        'S' ->
+            sUpper
+
+        'T' ->
+            tUpper
+
+        'U' ->
+            uUpper
+
+        'V' ->
+            vUpper
+
+        'W' ->
+            wUpper
+
+        'X' ->
+            xUpper
+
+        'Y' ->
+            yUpper
+
+        'Z' ->
+            zUpper
+
+        'a' ->
+            aLower
+
+        'b' ->
+            bLower
+
+        'c' ->
+            cLower
+
+        'd' ->
+            dLower
+
+        'e' ->
+            eLower
+
+        'f' ->
+            fLower
+
+        'g' ->
+            gLower
+
+        'h' ->
+            hLower
+
+        'i' ->
+            iLower
+
+        'j' ->
+            jLower
+
+        'k' ->
+            kLower
+
+        'l' ->
+            lLower
+
+        'm' ->
+            mLower
+
+        'n' ->
+            nLower
+
+        'o' ->
+            oLower
+
+        'p' ->
+            pLower
+
+        'q' ->
+            qLower
+
+        'r' ->
+            rLower
+
+        's' ->
+            sLower
+
+        't' ->
+            tLower
+
+        'u' ->
+            uLower
+
+        'v' ->
+            vLower
+
+        'w' ->
+            wLower
+
+        'x' ->
+            xLower
+
+        'y' ->
+            yLower
+
+        'z' ->
+            zLower
+
+        ' ' ->
+            space
+
+        '0' ->
+            number0
+
+        '1' ->
+            number1
+
+        '2' ->
+            number2
+
+        '3' ->
+            number3
+
+        '4' ->
+            number4
+
+        '5' ->
+            number5
+
+        '6' ->
+            number6
+
+        '7' ->
+            number7
+
+        '8' ->
+            number8
+
+        '9' ->
+            number9
+
+        '.' ->
+            period
+
+        ',' ->
+            comma
+
+        '"' ->
+            doubleQuote
+
+        '\'' ->
+            singleQuote
+
+        '?' ->
+            questionMark
+
+        '!' ->
+            exclaimationMark
+
+        '@' ->
+            at
+
+        '_' ->
+            underscore
+
+        '*' ->
+            asterisk
+
+        '#' ->
+            hash
+
+        '$' ->
+            dollar
+
+        '%' ->
+            percent
+
+        '&' ->
+            ampersand
+
+        '(' ->
+            openParenthesis
+
+        ')' ->
+            closeParenthesis
+
+        '+' ->
+            plus
+
+        '-' ->
+            minus
+
+        '/' ->
+            forwardSlash
+
+        ':' ->
+            colon
+
+        ';' ->
+            semiColon
+
+        '<' ->
+            leftArrow
+
+        '>' ->
+            rightArrow
+
+        '=' ->
+            equals
+
+        '\\' ->
+            backSlash
+
+        ']' ->
+            closeBracket
+
+        '^' ->
+            caret
+
+        '[' ->
+            openBracket
+
+        '`' ->
+            graveQuote
+
+        '{' ->
+            openCurlyBrace
+
+        '|' ->
+            line
+
+        '}' ->
+            closeCurlyBrace
+
+        '~' ->
+            negation
+
+        _ ->
+            questionMark
 
 
 aUpper : List (List Pixel)
